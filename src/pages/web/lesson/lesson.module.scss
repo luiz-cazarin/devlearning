@@ -34,14 +34,14 @@
     background-color: rgba(128, 128, 128, 0.434);
 }
 
-.box__video {
+.img__class {
     display: grid;
     justify-content: center;
     margin-top: 3rem;
     margin-bottom: 3rem;
 }
 
-.video {
+.image {
     height: 400px;
     width: 700px;
     background-color: rgb(190, 188, 188);
@@ -51,13 +51,14 @@
     display: grid;
     justify-content: center;
     h3 {
+        max-width: 800px;
         text-align: left;
         font-size: 25px;
         margin-bottom: 1rem;
     }
     
     p {
-        max-width: 900px;
+        max-width: 70vw;
         margin-bottom: 3rem;
     }
 }

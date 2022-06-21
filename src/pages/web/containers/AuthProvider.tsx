@@ -2,7 +2,7 @@ import { useToast } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { destroyCookie, parseCookies, setCookie } from "nookies";
 import { ReactNode, useEffect, useState } from "react";
-import { api } from "../../../services/api";
+import  api  from "../../../services/api";
 import { AuthContext, SignInCredentials } from "../contexts/Auth";
 
 interface AuthProviderProps {
@@ -52,7 +52,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
   function signOut() {
     destroyCookie(undefined, "@devlearning.token");
 
-    router.push("/login");
+    router.push("/web/login");
   }
 
   useEffect(() => {

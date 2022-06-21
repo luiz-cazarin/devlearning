@@ -13,6 +13,7 @@ $color-blue-6: #48cae4;
     min-height: calc(80vh - 1rem);
     display: grid;
     align-items: center;
+    padding: 1rem;
 }
 
 .card__login {
@@ -31,39 +32,52 @@ $color-blue-6: #48cae4;
     align-items: center;
     justify-content: space-between;
 
-    .box__text {
-        max-width: 550px;
-        padding: 1rem;
+    @media (max-width: 900px){
 
-        h1{
-            font-family: 'Segoe UI';
-            font-weight: 700;
-            font-size: 48px;
-            color: $color-white-3;
+        display: flex;
+        justify-content: center;
+
+        .box__text {
+            display: none;
         }
+      }
+
+    @media (min-width: 900px){
+        .box__text {
+            max-width: 550px;
+            padding: 1rem;
+    
+            h1{
+                font-family: 'Segoe UI';
+                font-weight: 700;
+                font-size: 48px;
+                color: $color-white-3;
+            }
+            
+            h2{
+                font-family: 'Segoe UI';
+                font-weight: 700;
+                font-size: 48px;
+                color: $color-white-3;
+            }
         
-        h2{
-            font-family: 'Segoe UI';
-            font-weight: 700;
-            font-size: 48px;
-            color: $color-white-3;
+            p{
+                font-family: 'Roboto';
+                font-weight: 400;
+                font-size: 18px;
+                color: $color-white-3;
+            }
+        
+            span{
+                font-family: 'Roboto';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 18px;
+                color: $color-white-3;
+            }
         }
-    
-        p{
-            font-family: 'Roboto';
-            font-weight: 400;
-            font-size: 18px;
-            color: $color-white-3;
-        }
-    
-        span{
-            font-family: 'Roboto';
-            font-style: normal;
-            font-weight: 400;
-            font-size: 18px;
-            color: $color-white-3;
-        }
-    }
+      }
+
 
     .box__form {
         width: 100%;
@@ -119,6 +133,14 @@ $color-blue-6: #48cae4;
     
             .link__register {
                 color: $color-blue-5;
+            }
+
+            .text__forgot__password {
+                color: rgb(84, 84, 84);
+                &:hover {
+                    transition: .3s;
+                    color: $color-blue-5;
+                }
             }
         }
     }

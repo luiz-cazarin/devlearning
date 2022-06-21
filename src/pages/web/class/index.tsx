@@ -1,49 +1,45 @@
 import Head from 'next/head';
-import Link from 'next/link';
 import styles from './styles.module.scss';
 
-export default function Class () {
-    const courses = [
-        {
-            title: 'Logica de programacao',
-            text: 'A lógica de programação é a maneira como se escreve um algoritmo, que nada mais é do que uma sequência de passos necessários, para que uma função seja executada.',
-            link: '/web/lesson',
-            srcImg: 'https://blog.dankicode.com/wp-content/uploads/2019/08/logica-de-programac%CC%A7a%CC%83o-para-iniciantes-380x249.png',
-            name: 'logica de programacao'
-        },
-        {
-            title: 'HTML',
-            text: 'HTML (Linguagem de Marcação de Hipertexto) é o código que você usa para estruturar uma página web e seu conteúdo. Por exemplo, o conteúdo pode ser estruturado em parágrafos, em uma lista com marcadores ou usando imagens e tabelas.',
-            link: '/web/lesson',
-            srcImg: 'https://blog.dankicode.com/wp-content/uploads/2019/08/logica-de-programac%CC%A7a%CC%83o-para-iniciantes-380x249.png',
-            name: 'html'
-        },
-        {
-            title: 'CSS',
-            text: 'CSS é chamado de linguagem Cascading Style Sheet e é usado para estilizar elementos escritos em uma linguagem de marcação como HTML. O CSS separa o conteúdo da representação visual do site',
-            link: '/web/lesson',
-            srcImg: 'https://blog.dankicode.com/wp-content/uploads/2019/08/logica-de-programac%CC%A7a%CC%83o-para-iniciantes-380x249.png',
-            name: 'css'
-        },
-        {
-            title: 'JavaScript',
-            text: 'JavaScript é uma linguagem de programação interpretada estruturada, de script em alto nível com tipagem dinâmica fraca e multiparadigma. Juntamente com HTML e CSS, o JavaScript é uma das três principais tecnologias da World Wide Web.',
-            link: '/web/lesson',
-            srcImg: 'https://blog.dankicode.com/wp-content/uploads/2019/08/logica-de-programac%CC%A7a%CC%83o-para-iniciantes-380x249.png',
-            name: 'javascript'
-        },
-    ]
+import api from '../../../services/api'
+import React from "react";
+import Link from 'next/link';
 
-    const list = courses.map(
+import { parseCookies } from "nookies";
+
+export default function Class () {
+    const [posts, setPosts] = React.useState([]);
+    const cookies = parseCookies();
+    const token = cookies["@devlearning.token"];
+
+    React.useEffect(() => {
+        api.get("/courses/").then((response) => setPosts(response.data.data));
+    }, []);  
+
+    const onDelete = async (id) => {
+        var response = await api.delete(`/courses/${id}`,{
+            headers:{"Authorization": `Bearer ${token}`}
+        });
+        if (response.status == 200) {
+            api.get("/courses/").then((response) => setPosts(response.data.data));
+        } 
+    }
+
+    const list = posts.map(
         (e) =>
             <div className={styles.item_list}>
                 <div className={styles.desc__class}>
                     <h2>{e.title}</h2>
-                    <p>{e.text}</p>
-                    <a href={e.link}><button className={styles.button}><Link href={e.link}>ACESSAR CURSO</Link></button></a>
-                </div>
+                    <p>{e.subtitle}</p>
+                    <Link href={'/web/class/' + e._id}>
+                        <button className={styles.button}>ACESSAR CURSO</button>
+                    </Link>
+                    { token &&
+                        <button className={styles.button_delete} onClick={() => onDelete(e._id)}>APAGAR CURSO</button>
+                    }
+            </div>
                 <div className={styles.img__class}>
-                    <img src={e.srcImg} alt={e.name} />
+                    <img src={e.imageFile} alt={e.name} />
                 </div>
             </div>
     )
@@ -58,6 +54,11 @@ export default function Class () {
                 <h1 className={styles.title}>Cursos</h1>
                 <div className={styles.line__title}></div>
             </div>
+            { token &&
+                <div className={styles.header__class}>
+                    <a href="/web/newClass"><button className={styles.button__new}>CRIAR CURSO</button></a>
+                </div>
+            }
             <div className={styles.list__class}>
                 <ul>{list}</ul>
             </div>
