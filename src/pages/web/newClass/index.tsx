@@ -78,6 +78,7 @@ export default function newClass () {
                                 name="imageFile"
                                 value={formValue.imageFile}
                                 onChange={handleChange}
+                                required
                             />
                         </div>
                     </div>

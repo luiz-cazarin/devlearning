@@ -6,16 +6,34 @@ import React from "react";
 
 const Details = () => {
     const cookies = parseCookies();
-    const token = cookies["@devlearning.token"];
+    const token = cookies["@devlearning.token"];    
 
-    const title = 'LOGICA DE PROGRAMAÇÃO'
     const router = useRouter();
 
     const [course, setCourse] = React.useState({});
+    const [comments, setComments] = React.useState([]);
 
     React.useEffect(() => {
         api.get(`/courses/${router.query.id}`).then((response) => setCourse(response.data));
+        api.get("/comments/course/"+router.query.id).then((response) => {
+            setComments(response.data);
+        });
     }, []);
+
+    const listChat = comments.map((e) =>
+        <div className={styles.chat}>
+            <img src='/images/profile.png' alt='user'/>
+            <div className={styles.chat_2}>
+                <div> 
+                    <p className={styles.title}>{e.title}</p>
+                </div>
+                <p>Usuario: {localStorage.getItem('userName')}</p>
+                <div>
+                    <p className={styles.description}>{e.description}</p>
+                </div>
+            </div>
+        </div>
+    )
 
     return (
         <>
@@ -37,13 +55,45 @@ const Details = () => {
                         {course.description}
                     </p>
                 </div>
-                {/* <div className={styles.box__chat}>
-                    <div className={styles.chat}>
-                        <img src='https://wowxwow.com/wp-content/uploads/2018/02/xsullo-eyesee.jpg'></img>
-                        <div className={styles.chat_2}>
+                <div className={styles.body__chat}>
+                <div className={styles.box__chat}>
+                    {token ?
+                        <div className={styles.chat}>
+                            <img src='/images/profile.png' alt='user'/>
+                            <div className={styles.chat_2}>
+                                <div>
+                                    
+                                    <textarea
+                                        placeholder='Titulo:'
+                                        name="title"
+                                        id="title"
+                                        required
+                                    />
+                                </div>
+                                <p>Usuario: {localStorage.getItem('userName')}</p>
+                                <div>
+                                    <textarea
+                                        placeholder='Descrição:'
+                                        name="description"
+                                        id="description"
+                                        required
+                                    />
+                                </div>
+                                <div>
+                                    <button>Criar comentario</button>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div> */}
+                        :
+                        <div className={styles.alert__login}>
+                            <a href='/web/login/'>Faça o login para comentar!</a>
+                        </div>
+                    }
+                    {listChat.length > 0 &&
+                        listChat
+                    }
+                </div>
+                </div>
             
             </div>
         </>

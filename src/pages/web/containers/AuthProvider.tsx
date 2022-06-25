@@ -35,6 +35,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
           token: data.data.token
         });
 
+        localStorage.setItem('userEmail', data.data.email);
+        localStorage.setItem('userName', data.data.name);
         setCookie(undefined, "@devlearning.token", data.data.token);
 
         router.push("/web/class");

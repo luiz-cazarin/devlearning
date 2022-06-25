@@ -13,7 +13,9 @@ export default function Class () {
     const token = cookies["@devlearning.token"];
 
     React.useEffect(() => {
-        api.get("/courses/").then((response) => setPosts(response.data.data));
+        api.get("/courses/").then((response) => {
+            setPosts(response.data.data);
+        });
     }, []);  
 
     const onDelete = async (id) => {
@@ -34,7 +36,8 @@ export default function Class () {
                     <Link href={'/web/class/' + e._id}>
                         <button className={styles.button}>ACESSAR CURSO</button>
                     </Link>
-                    { token &&
+                    {/* { token && e.creator == 'luiz@gmail.com' && */}
+                    { token && localStorage.getItem('userEmail') == e.creator &&
                         <button className={styles.button_delete} onClick={() => onDelete(e._id)}>APAGAR CURSO</button>
                     }
             </div>
