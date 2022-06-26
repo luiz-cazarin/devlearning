@@ -54,7 +54,7 @@ export default function Class () {
         </Head>
         <div className={styles.class}>
             <div className={styles.header__title}>
-                <h1 className={styles.title}>Cursos</h1>
+                <h1 className={styles.title}>Aulas</h1>
                 <div className={styles.line__title}></div>
             </div>
             { token &&

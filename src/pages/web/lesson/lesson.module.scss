@@ -3,8 +3,9 @@
 }
 
 .header__banner {
-    height: 230px;
+    height: 100%;
     width: 100%;
+    padding: 1rem 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -42,9 +43,12 @@
 }
 
 .image {
-    height: 400px;
-    width: 700px;
+    height: 100%;
+    max-height: 400px;
+    width: 95vw;
+    max-width: 700px;
     background-color: rgb(190, 188, 188);
+    object-fit: cover;
 }
 
 .alert__login {
@@ -53,17 +57,23 @@
 }
 
 .alert__login a{
-    font-size: 18px;
     padding: 1rem;
     background-color: #4947c2;
-    border-radius: 20px;
+    border-radius: 30px;
     cursor: pointer;
+    @media (min-width: 700px) {
+        font-size: 18px;
+    }
+    @media (max-width: 700px) {
+        font-size: 14px;
+    }
 }
 
 .content {
     display: grid;
     justify-content: center;
     h3 {
+        padding: 1rem;
         max-width: 800px;
         text-align: left;
         font-size: 25px;
@@ -71,8 +81,13 @@
     }
     
     p {
-        max-width: 70vw;
+        padding: 1rem;
         margin-bottom: 3rem;
+        @media (min-width: 800px) {
+            max-width: 70vw;
+        }
+        @media (max-width: 800px) {
+        }
     }
 }
 .body__chat {
@@ -86,7 +101,7 @@
         border-radius: 5px;
         min-height: 300px;
         max-height: 500px;
-        min-width: 900px;
+        width: 95vw;
         max-width: 1200px;
         margin-bottom: 3rem;
         display: grid;
@@ -96,24 +111,35 @@
         align-items: center;
 
         img {
-            width: 150px;
+            width: 100%;
+            max-width: 150px;
             border-radius: 100%;
         }
         .chat_2 {
-            padding: 1rem;
+            padding: .5rem;
             border-radius: 3px;
             width: 95%;
             height: 90%;
             color: rgba(0, 0, 0, 0.361);
 
             .title {
-                font-size: 24px;
                 color: #0C4975;
+                @media (min-width: 700px) {
+                    font-size: 24px;
+                }
+                @media (max-width: 700px) {
+                    font-size: 20px;
+                }
             }
             .description {
-                font-size: 18px;
                 font-weight: 400;
                 color: rgba(0, 0, 0, 0.7);
+                @media (min-width: 700px) {
+                    font-size: 18px;
+                }
+                @media (max-width: 700px) {
+                    font-size: 14px;
+                }
             }
 
             p {

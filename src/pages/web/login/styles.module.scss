@@ -21,7 +21,17 @@ $color-blue-6: #48cae4;
     border: 1px solid $color-grey-1;
     border-radius: 25px;
     margin: 1rem;
-    padding: 3em 3em 3em 3em;
+}
+
+@media (max-width: 700px) {
+    .card__login {
+        padding: 1.5em;
+    }
+}
+@media (min-width: 700px) {
+    .card__login {
+        padding: 3em;
+    }
 }
 
 .contentContainer {
@@ -105,18 +115,33 @@ $color-blue-6: #48cae4;
             background: $color-blue-3;
             color: white !important;
         }
-    
-        .input__values {
-            text-align: left;
-            width: 427px;
-            height: 56px;
-            background: none;
-            border: 2px solid $color-blue-3;
-            outline: 0;
-            border-radius: 10px;
-            margin-bottom: 40px;
-            padding: 1rem;
-            color: $color-white-1;
+        @media (max-width: 700px) {
+            .input__values {
+                text-align: left;
+                width: calc(100vw - 120px);
+                height: 56px;
+                background: none;
+                border: 2px solid $color-blue-3;
+                outline: 0;
+                border-radius: 10px;
+                margin-bottom: 20px;
+                padding: 1rem;
+                color: $color-white-1;
+            }
+        }
+        @media (min-width: 700px) {
+            .input__values {
+                text-align: left;
+                width: 427px;
+                height: 56px;
+                background: none;
+                border: 2px solid $color-blue-3;
+                outline: 0;
+                border-radius: 10px;
+                margin-bottom: 40px;
+                padding: 1rem;
+                color: $color-white-1;
+            }
         }
     
         .input__values:focus {

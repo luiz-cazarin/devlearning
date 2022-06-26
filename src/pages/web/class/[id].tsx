@@ -10,7 +10,7 @@ const Details = () => {
 
     const router = useRouter();
 
-    const [course, setCourse] = React.useState({});
+    const [course, setCourse] = React.useState({name: '', title: '', subtitle: '', description: '', imageFile: ''});
     const [comments, setComments] = React.useState([]);
 
     React.useEffect(() => {
