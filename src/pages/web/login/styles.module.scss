@@ -25,11 +25,13 @@ $color-blue-6: #48cae4;
 
 @media (max-width: 700px) {
     .card__login {
-        padding: 1.5em;
+        padding: 2em;
     }
 }
 @media (min-width: 700px) {
     .card__login {
+        width: 80vw;
+        margin: auto;
         padding: 3em;
     }
 }
@@ -42,7 +44,7 @@ $color-blue-6: #48cae4;
     align-items: center;
     justify-content: space-between;
 
-    @media (max-width: 900px){
+    @media (max-width: 1000px){
 
         display: flex;
         justify-content: center;
@@ -172,6 +174,8 @@ $color-blue-6: #48cae4;
 }
 
 .footer{
+    margin: auto;
+    width: 100vw;
     padding: 20px;  
     display: flex;
     justify-content: center;

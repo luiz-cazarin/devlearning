@@ -53,8 +53,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
   function signOut() {
     destroyCookie(undefined, "@devlearning.token");
-
-    router.push("/web/login");
+    localStorage.clear();
+    router.push("/");
   }
 
   useEffect(() => {

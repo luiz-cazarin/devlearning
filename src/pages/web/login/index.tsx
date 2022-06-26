@@ -18,8 +18,9 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (email && password) {
-      console.log('Enviou');
-      signIn(formValue);
+        signIn(formValue);
+    } else {
+      console.log('Login invalido!')
     }
   };
 
