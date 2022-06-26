@@ -33,7 +33,12 @@ export default function Class () {
                 <div className={styles.desc__class}>
                     <h2>{e.title}</h2>
                     <p>{e.subtitle}</p>
-                    <Link href={'/web/class/' + e._id}>
+                    <Link href={
+                        {
+                            pathname: '/web/class/[id]',
+                            query: {id: e._id}
+                        }
+                    }>
                         <button className={styles.button}>ACESSAR CURSO</button>
                     </Link>
                     {/* { token && e.creator == 'luiz@gmail.com' && */}
