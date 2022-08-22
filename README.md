@@ -3,7 +3,10 @@
 
 # Sobre
 
-A proposta para o seguinte site é fazer com que pessoas novas no mundo da programação tenha o primeiro contato
+Site educacional voltado a comunidade, desenvolvido
+em React.js, Next.js, Axios, Mongo, e Node.js com autenticação de
+usuários CRUD de postagens, chat, controle de acesso.
+
 
 # Funcionalidades
 
