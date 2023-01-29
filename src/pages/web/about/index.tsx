@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import styles from './styles.module.scss';
+import Link from 'next/link';
 
 export default function About() {
    return (
@@ -7,7 +8,7 @@ export default function About() {
          <Head>
             <title>About</title>
          </Head>
-         <body className={styles.bodyContainer}>
+         <div className={styles.bodyContainer}>
             <div className={styles.contentContainer}>
                <section className={styles.hero}>
                   <h1>Bem vindo ao DEV LEARNING</h1>
@@ -16,7 +17,7 @@ export default function About() {
                   <p>Crie suas próprias aulas e ajude a comunidade!</p>
                   <p>Tecnologias usadas:</p>
                   <p>React.js, Next.js, Node.js, Axios, MongoDB, Figma</p>
-                  <a href="/"><button className={styles.button}>Voltar</button></a>
+                  <Link href="/"><button className={styles.button}>Voltar</button></Link>
                </section>
                <aside className={styles.lottie}>
                   <img className={styles.img} src='/images/ilustration.png' alt="devLearning" />
@@ -50,8 +51,8 @@ export default function About() {
                   </a>
                </div>
             </div>
-         </body>
-         <div className={styles.linha}></div>   
+         </div>
+         <div className={styles.linha}></div>
          <footer className={styles.footer}>
             <h2>Desenvolvido por Luiz Claudio, Yaman Augusto, Gabriel Arthur, Douglas Figueroa</h2>
          </footer>

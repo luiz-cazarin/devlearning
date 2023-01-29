@@ -2,8 +2,10 @@ import Head from 'next/head'
 import styles from './register.module.scss'
 import React from 'react';
 import api from '../../../services/api'
+import { useRouter } from 'next/router'
 
 export default function Register () {
+    const router = useRouter();
     const [formValue, setformValue] = React.useState({
         name: '',
         email: '',
@@ -18,13 +20,15 @@ export default function Register () {
         });
     }
 
-    const  handleSubmit = async () => {
+    const  handleSubmit = async (event) => {
+        event.preventDefault();
         if (formValue.name && formValue.email && formValue.password) {
-            await api({
+            const response = await api({
                 method: 'post',
                 url: '/users/signup',
                 data: formValue
             });
+            if (response.status === 201) router.push('/web/login');
         }
     }
 

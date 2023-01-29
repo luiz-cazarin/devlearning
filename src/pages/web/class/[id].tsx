@@ -3,7 +3,7 @@ import styles from '../lesson/lesson.module.scss'
 import { parseCookies } from "nookies";
 import api from '../../../services/api'
 import React from "react";
-import { route } from 'next/dist/next-server/server/router';
+import Link from 'next/link';
 
 export default function Details () {
     const cookies = parseCookies();
@@ -120,7 +120,7 @@ export default function Details () {
                         </form>
                         :
                         <div className={styles.alert__login}>
-                            <a href='/web/login/'>Faça o login para comentar!</a>
+                            <Link href='/web/login/'>Faça o login para comentar!</Link>
                         </div>
                     }
                     {listChat.length > 0 &&
