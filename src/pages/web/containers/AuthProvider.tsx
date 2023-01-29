@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { destroyCookie, parseCookies, setCookie } from "nookies";
 import { ReactNode, useEffect, useState } from "react";
 import  api  from "../../../services/api";
-import { AuthContext, SignInCredentials } from "../contexts/Auth";
+import { AuthContext, SignInCredentials } from "../../../contexts/Auth";
 
 interface AuthProviderProps {
   children: ReactNode;
@@ -16,7 +16,7 @@ interface User {
   token: string;
 }
 
-export function AuthProvider({ children }: AuthProviderProps) {
+const AuthProvider = ({ children }: AuthProviderProps) => {
   const [user, setUser] = useState<User | null>(null);
   const isAuthenticated = !!user;
 
@@ -93,3 +93,5 @@ export function AuthProvider({ children }: AuthProviderProps) {
     </AuthContext.Provider>
   );
 }
+
+export default AuthProvider;

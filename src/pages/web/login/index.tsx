@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { useState } from 'react';
-import { useAuth } from '../hooks/useAuth';
+import useAuth from '../../../hooks/useAuth';
 import styles from './styles.module.scss';
 
 const initialState = {
@@ -18,7 +18,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (email && password) {
-        signIn(formValue);
+      signIn(formValue);
     } else {
       console.log('Login invalido!')
     }
