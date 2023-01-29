@@ -1,6 +1,6 @@
 import styles from './styles.module.scss'
 import {ActiveLink} from '../ActiveLink';
-import { useAuth } from "../../pages/web/hooks/useAuth";
+import  useAuth from "../../pages/web/hooks/useAuth";
 import Link from 'next/link';
 import { parseCookies } from "nookies";
 

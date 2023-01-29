@@ -16,7 +16,7 @@ interface User {
   token: string;
 }
 
-export function AuthProvider({ children }: AuthProviderProps) {
+const AuthProvider = ({ children }: AuthProviderProps) => {
   const [user, setUser] = useState<User | null>(null);
   const isAuthenticated = !!user;
 
@@ -93,3 +93,5 @@ export function AuthProvider({ children }: AuthProviderProps) {
     </AuthContext.Provider>
   );
 }
+
+export default AuthProvider;
