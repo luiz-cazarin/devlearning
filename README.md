@@ -5,6 +5,8 @@
 
 A proposta para o seguinte site é fazer com que pessoas novas no mundo da programação tenha o primeiro contato
 
+Acesse o site: https://devlearning-teal.vercel.app/
+
 # Funcionalidades
 
 - Login/Register
