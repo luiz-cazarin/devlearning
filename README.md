@@ -3,7 +3,7 @@
 
 # Sobre
 
-A proposta para o seguinte site é fazer com que pessoas novas no mundo da programação tenha o primeiro contato
+Site com a proposta de criar uma comunidade onde programados podem se registrar e criar aulas publicas e outros usuarios podem comentar nas publicações
 
 Acesse o site: https://devlearning-teal.vercel.app/
 
